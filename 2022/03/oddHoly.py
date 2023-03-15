@@ -36,13 +36,17 @@ class test:
 
         #3자리 이상이면 이때 부터 분리 시점을 파악한다.
         #숫자를 분리한다.
-        temp_num_array = []
+
         temp_num = num
+        temp_cnt = cnt
         while temp_num // 10 > 0 :
-            temp_num_array.append(temp_num % 10)
+            aa = temp_num % 10
+            if aa % 2 == 1 : temp_cnt = temp_cnt + 1
             temp_num = temp_num // 10
-        temp_num_array = temp_num_array.reverse()
+
         
+
+
 
 
 
