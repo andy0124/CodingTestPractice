@@ -34,17 +34,49 @@ class test:
             self.repeat(temp_num, temp_cnt)
             return
 
-        #3자리 이상이면 이때 부터 분리 시점을 파악한다.
-        #숫자를 분리한다.
 
+
+        # 현재 숫자에서 홀수 카운트
         temp_num = num
         temp_cnt = cnt
+        temp_array = list()
         while temp_num // 10 > 0 :
             aa = temp_num % 10
-            if aa % 2 == 1 : temp_cnt = temp_cnt + 1
+            if aa % 2 == 1 :
+                temp_cnt = temp_cnt + 1
+            temp_array.append(aa % 10)
             temp_num = temp_num // 10
 
-        
+        if temp_num % 2 == 1:
+            temp_cnt = temp_cnt + 1
+        temp_array.append(temp_num)
+
+        # 3자리 이상인 이 숫자를 여러 케이스로 분리하고 더한다.
+
+        temp_array.reverse()
+        for idx_f in range(len(temp_array)) :
+            if idx_f >= len(temp_array) - 1 : continue
+            for idx_s in range(idx_f+1,len(temp_array)) :
+                #각 구간의 숫자 임시 저장
+                if idx_s >= len(temp_array) - 1 : continue
+                first = 0
+                second = 0
+                third = 0
+                for f in range(0, idx_f + 1) :
+                    first = first * 10 + temp_array[f]
+                for s in range(idx_f + 1, idx_s + 1) :
+                    second = second * 10 + temp_array[s]
+                for th in range(idx_s + 1, len(temp_array)):
+                    third = third * 10  + temp_array[th]
+
+                tmp_sum = first + second + third
+                if tmp_sum % 2 == 1 : self.repeat(tmp_sum,temp_cnt +1)
+                else : self.repeat(tmp_sum,temp_cnt)
+
+
+
+
+
 
 
 
@@ -53,7 +85,7 @@ class test:
 
 if __name__ == '__main__' :
     ttt = test()
-    result = ttt.solution(12)
+    result = ttt.solution(999999999)
     print(result)
 
 
