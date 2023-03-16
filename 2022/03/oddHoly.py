@@ -55,10 +55,10 @@ class test:
 
         temp_array.reverse()
         for idx_f in range(len(temp_array)) :
-            if idx_f >= len(temp_array) - 1 : continue
+            if idx_f >= len(temp_array) - 1 : break
             for idx_s in range(idx_f+1,len(temp_array)) :
                 #각 구간의 숫자 임시 저장
-                if idx_s >= len(temp_array) - 1 : continue
+                if idx_s >= len(temp_array) - 1 : break
                 first = 0
                 second = 0
                 third = 0
@@ -70,8 +70,7 @@ class test:
                     third = third * 10  + temp_array[th]
 
                 tmp_sum = first + second + third
-                if tmp_sum % 2 == 1 : self.repeat(tmp_sum,temp_cnt +1)
-                else : self.repeat(tmp_sum,temp_cnt)
+                self.repeat(tmp_sum,temp_cnt)
 
 
 
