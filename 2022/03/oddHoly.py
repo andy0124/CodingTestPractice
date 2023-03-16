@@ -1,4 +1,3 @@
-
 class test:
     def __init__(self):
         self.min = 10000000
@@ -74,17 +73,10 @@ class test:
 
 
 
-
-
-
-
-
-
-
-
 if __name__ == '__main__' :
     ttt = test()
-    result = ttt.solution(999999999)
-    print(result)
+    N =int(input().strip())
+    result = ttt.solution(N)
+    print(result[0], result[1])
 
 
